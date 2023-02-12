@@ -27,7 +27,7 @@ namespace CopywritingWebSite.Service.Services
         {
             var test = await _appDbContext.Tests.FindAsync(id);
             _appDbContext.Tests.Remove(test);
-            await _appDbContext.SaveChangesAsync();   
+            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Test>> GetAllAsync()
