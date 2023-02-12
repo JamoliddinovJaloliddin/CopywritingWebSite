@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CopywritingWebSite.Service.Services
 {
-    public class ArticleText : IArticleService
+    public class ArticleService : IArticleService
     {
         private readonly AppDbContext _appDbContext;
 
-        public ArticleText(AppDbContext appDbContext)
+        public ArticleService(AppDbContext appDbContext)
         {
             this._appDbContext = appDbContext;
         }

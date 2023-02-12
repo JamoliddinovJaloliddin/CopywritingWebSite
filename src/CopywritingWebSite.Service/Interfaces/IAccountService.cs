@@ -6,6 +6,7 @@ namespace CopywritingWebSite.Service.Interfaces
     {
         public Task<string> RegisterAsync(AccountRegisterDto dto);
         public Task<string> LoginAsync(long id, AccountRegisterDto dto);
+        public Task SendEmail(string email);
 
     }
 }
