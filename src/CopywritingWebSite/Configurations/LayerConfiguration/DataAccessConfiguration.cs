@@ -10,7 +10,7 @@ namespace CopywritingWebSite.MVS.Configurations.LayerConfiguration
         {
             string connectionString = configuration.GetConnectionString("DatabaseConnection");
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
-           
+
         }
     }
 }
