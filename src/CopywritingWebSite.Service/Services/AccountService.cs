@@ -11,9 +11,11 @@ namespace CopywritingWebSite.Service.Services
     public class AccountService : IAccountService
     {
         private readonly AppDbContext _appDbContext;
-        public AccountService(AppDbContext appDbContext)
+        private readonly IEmailService _emailService;
+        public AccountService(AppDbContext appDbContext, IEmailService emailService)
         {
             this._appDbContext = appDbContext;
+            this._emailService = emailService;
         }
 
         public async Task<string> LoginAsync(long id, AccountRegisterDto dto)
@@ -47,6 +49,12 @@ namespace CopywritingWebSite.Service.Services
             _appDbContext.Users.Add(users);
             await _appDbContext.SaveChangesAsync();
             return "";
+        }
+
+        public async Task SendEmail(string email)
+        {
+            var res = _emailService.SendAsync(email);
+            ;
         }
     }
 }
