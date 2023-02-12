@@ -3,11 +3,6 @@ using CopywritingWebSite.Domain.Entities;
 using CopywritingWebSite.Service.Dtos.CopywritingDto;
 using CopywritingWebSite.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CopywritingWebSite.Service.Services
 {
@@ -31,7 +26,7 @@ namespace CopywritingWebSite.Service.Services
         {
             var status = await _appDbContext.CopywritingStatuses.FindAsync(id);
             _appDbContext.CopywritingStatuses.Remove(status);
-            await _appDbContext.SaveChangesAsync(); 
+            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<CopywritingStatus>> GetAllAsync()
@@ -39,12 +34,12 @@ namespace CopywritingWebSite.Service.Services
             return await _appDbContext.CopywritingStatuses.AsNoTracking().ToListAsync();
         }
 
-        public async Task UpdateAsync(long id,CopywritingCreateDto dto)
+        public async Task UpdateAsync(long id, CopywritingCreateDto dto)
         {
             var status = (CopywritingStatus)dto;
             status.Id = id;
             _appDbContext.CopywritingStatuses.Update(status);
-            await _appDbContext.SaveChangesAsync(); 
+            await _appDbContext.SaveChangesAsync();
         }
     }
 }

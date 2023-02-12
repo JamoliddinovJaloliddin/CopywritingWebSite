@@ -3,11 +3,6 @@ using CopywritingWebSite.Domain.Entities;
 using CopywritingWebSite.Service.Dtos.ArticleDto;
 using CopywritingWebSite.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CopywritingWebSite.Service.Services
 {
@@ -24,7 +19,7 @@ namespace CopywritingWebSite.Service.Services
         {
             var text = (Article)dto;
             _appDbContext.Articles.Add(text);
-            await _appDbContext.SaveChangesAsync(); 
+            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(long id)
@@ -41,7 +36,7 @@ namespace CopywritingWebSite.Service.Services
 
         public async Task<IEnumerable<Article>> GetByIdAsync(long id)
         {
-            return await _appDbContext.Articles.Where(x => x.Id == id).AsNoTracking().ToListAsync();    
+            return await _appDbContext.Articles.Where(x => x.Id == id).AsNoTracking().ToListAsync();
         }
 
         public async Task UpdateAsync(long id, ArticleCreateDto dto)
