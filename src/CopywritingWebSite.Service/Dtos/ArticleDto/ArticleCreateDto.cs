@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace CopywritingWebSite.Service.Dtos.ArticleDto
 {
-    public class ArticleTextDto
+    public class ArticleCreateDto
     {
         public string Text { get; set; } = String.Empty;
 
-        public static implicit operator Article(ArticleTextDto dto)
+        public static implicit operator Article(ArticleCreateDto dto)
         {
             return new Article()
             {

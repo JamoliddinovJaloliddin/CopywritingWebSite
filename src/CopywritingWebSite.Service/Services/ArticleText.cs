@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CopywritingWebSite.Service.Services
 {
-    public class ArticleText : IArticleText
+    public class ArticleText : IArticleService
     {
         private readonly AppDbContext _appDbContext;
 
@@ -20,7 +20,7 @@ namespace CopywritingWebSite.Service.Services
             this._appDbContext = appDbContext;
         }
 
-        public async Task CreateAsync(ArticleTextDto dto)
+        public async Task CreateAsync(ArticleCreateDto dto)
         {
             var text = (Article)dto;
             _appDbContext.Articles.Add(text);
@@ -44,7 +44,7 @@ namespace CopywritingWebSite.Service.Services
             return await _appDbContext.Articles.Where(x => x.Id == id).AsNoTracking().ToListAsync();    
         }
 
-        public async Task UpdateAsync(long id, ArticleTextDto dto)
+        public async Task UpdateAsync(long id, ArticleCreateDto dto)
         {
             var text = (Article)dto;
             text.Id = id;
