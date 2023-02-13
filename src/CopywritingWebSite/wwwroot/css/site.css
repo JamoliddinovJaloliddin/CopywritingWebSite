@@ -1,18 +1,44 @@
-html {
-  font-size: 14px;
-}
-
 @media (min-width: 768px) {
   html {
     font-size: 16px;
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.header_bottom .container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.header_bottom .main_nav ul{
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+}
+.header_bottom .main_nav ul li{
+	margin-right: 35px;
+}
+.header_bottom .main_nav ul li a,
+.header_bottom .cart a{
+	text-decoration: none;
+	color: #1c1b1a;
+}
+.header_bottom .main_nav ul li a:hover,
+.header_bottom .cart a:hover{
+	color: #e52e2e;
+}
+.header_bottom .main_nav ul li a:before{
+	content: '>';
+	display: inline-block;
+	font-family: 'Proxima Nova Bl';
+	font-weight: 900;
+	color: #e52e2e;
+	transform: translate(-22px,0);
+	opacity: 0;
+	transition: .3s all ease;
+}
+.header_bottom .main_nav ul li a.active:before,
+.header_bottom .main_nav ul li a:hover:before{
+	transform: translate(-7px,0);
+	opacity: 1;
 }
 
-body {
-  margin-bottom: 60px;
-}
