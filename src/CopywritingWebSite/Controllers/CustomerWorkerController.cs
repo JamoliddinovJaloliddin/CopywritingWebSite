@@ -12,5 +12,11 @@ namespace CopywritingWebSite.MVS.Controllers
         {
             return View("CustomerWorkerTable");
         }
+
+        [HttpGet("tableAdd")]
+        public async Task<IActionResult> GetTable()
+        {
+            return View("CustomerWorkerTableAdd");
+        }
     }
 }
