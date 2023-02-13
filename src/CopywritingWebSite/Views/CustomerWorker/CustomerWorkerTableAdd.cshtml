@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "../MainWindow/MainWindowLayoutTwo.cshtml";
+    Layout = "../UserMainWindow/MainWindowLayoutTwo.cshtml";
 }
 
 <link href="~/css/form.css" rel="stylesheet">
@@ -13,52 +13,22 @@
                     <div class="col-50">
                         <h3>Buyurtma</h3>
                         <label for="email"><i class="fa fa-envelope"></i> Izoh</label>
-                        <textarea type="text" id="email" name="email" placeholder="...." style="width:100%; height:200px"></textarea>
-
-                        <div class="row">
-                            <div class="col-50">
-                                <label for="state">Muddat</label>
-                                <input type="text" id="state" name="state" placeholder="...">
-                            </div>
-                        </div>
+                        <textarea type="text" id="email" name="email" placeholder="...." style="width:100%; height:230px"></textarea>
                     </div>
-
-                    <div class="col-50">
-                        <h3>To'lov</h3>
-                        <label for="cname">Ismingiz</label>
-                        <input type="text" id="cname" name="cardname" placeholder="Ivan Semenov">
-                        <label for="ccnum">Karta raqami</label>
-                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-                        <label for="expmonth">Oy</label>
-                        <input type="text" id="expmonth" name="expmonth" placeholder="Сентябрь">
-
-                        <div class="row">
-                            <div class="col-50">
-                                <label for="expyear">Yil</label>
-                                <input type="text" id="expyear" name="expyear" placeholder="2018">
-                            </div>
-                            <div class="col-50">
-                                <label for="cvv">CVV</label>
-                                <input type="text" id="cvv" name="cvv" placeholder="352">
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-                <input type="submit" value="Buyurtmani rasmiylashtiring" class="btn">
+
             </form>
         </div>
     </div>
 
     <div class="col-25">
         <div class="container" style="background-color:white;  border-radius:6px;">
-            <h4>Savat <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-            <p><a href="#">Buyurtma 1</a> <span class="price">$15</span></p>
-            <p><a href="#">Buyyrtma 2</a> <span class="price">$5</span></p>
-            <p><a href="#">Buyurtma 3</a> <span class="price">$8</span></p>
-            <p><a href="#">Buyurtma 4</a> <span class="price">$2</span></p>
-            <hr>
-            <p>Ummumiy narxi <span class="price" style="color:black"><b>$30</b></span></p>
+            <h4>Ma'lumot <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i></span></h4>
+            <label for="cname">Muddat</label>
+            <input type="text" id="cname" name="cardname" placeholder="....">
+            <label for="ccnum">To'lov</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="....">
+            <input type="submit" value="Buyurtmani rasmiylashtiring" class="btn">
         </div>
     </div>
 </div>

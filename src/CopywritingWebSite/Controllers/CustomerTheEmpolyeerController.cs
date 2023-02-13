@@ -15,5 +15,11 @@ namespace CopywritingWebSite.MVS.Controllers
         {
             return View("CompletedOrderWindow");
         }
+
+        [HttpGet("accepted")]
+        public ViewResult Accepted()
+        {
+            return View("AcceptedOrderWindow");
+        }
     }
 }
