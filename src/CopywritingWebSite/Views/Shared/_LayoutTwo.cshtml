@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+}
+
+    <div class="container-fluid" style="height: 400px;  background-color: #44C9FF;">
+        <div id="carouselAllFeatures" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselAllFeatures" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselAllFeatures" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselAllFeatures" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/seed/picsum/800/300" class="d-block w-100" alt="First Slidet" style="height: 400px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/seed/picsum/800/300" class="d-block w-100" alt="Second Slider" style="height: 400px;">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/800/300?grayscale" class="d-block w-100" alt="Third Slider" style="height: 400px; ">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAllFeatures" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselAllFeatures" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div class="container-fluid" style="height: 290px; background-color: white; margin-top: 360px; margin-bottom: -40px">
+        <div class="row" style="padding-top: 100px; padding-left: 130px;">
+            <div class="col" style=" background-color: white;  ">
+                <img src="https://www.etxt.ru/modules/client/index/images/f2.png" style="margin-top: -30px;">
+                <div><b>14,7</b> ming<br><span>bajarilgan<br>buyurtmalar</span></div>
+            </div>
+            <div class="col" style=" background-color: white; ">
+            <img src="https://www.etxt.ru/modules/client/index/images/f3.png" style="margin-top: -30px;">
+                <div><b>0,7</b> ming<br><span>ro'yhatdan o'tgan<br>buyurtmachilar</span></div>
+            </div>
+            <div class="col" style=" background-color: white; ">
+            <img src="https://www.etxt.ru/modules/client/index/images/f4.png" style="margin-top: -30px;">
+                <div><b>2,5</b> МЛН<br><span>зарегистрированных<br>Исполнителей</span></div>
+            </div>
+            <div class="col" style=" background-color: white; ">
+            <img src="https://www.etxt.ru/modules/client/index/images/f5.png" style="margin-top: -30px;">
+                <div><b>300</b> ТЫС<br><span>готовых<br>статей</span></div>
+            </div>
+            <div class="col" style=" background-color: white; ">
+            <img src="https://www.etxt.ru/modules/client/index/images/f6.png" style="margin-top: -30px;">
+                <div><b>120</b> ТЫС<br><span>готовых<br>фотографий</span></div>
+            </div>
+            <div class="col" style="background-color: white; ">
+            <img src="https://www.etxt.ru/modules/client/index/images/f7.png" style="margin-top: -30px;">
+                <div><b>12</b> ТЫС<br><span>отзывов</span></div>
+            </div>
+        </div>
+    </div>

@@ -25,4 +25,9 @@
 		<ProjectReference Include="..\CopywritingWebSite.Service\CopywritingWebSite.Service.csproj" />
 	</ItemGroup>
 
+
+	<ItemGroup>
+	  <Folder Include="Views\Admin\" />
+	</ItemGroup>
+
 </Project>

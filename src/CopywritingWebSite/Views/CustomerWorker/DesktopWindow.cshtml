@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "../MainWindow/MainWindowLayoutTwo.cshtml";
+}
+
+<header>
+    <div class="mb-5 mb-xl-8 h-600px" style="width:80%; margin-left:10%; margin-top:40px">
+        <textarea cols="10" id="editor1" name="editor1" rows="10"></textarea>
+    </div>
+    <script src="https://cdn.ckeditor.com/4.20.1/standard-all/ckeditor.js" asp-append-version="true"></script>
+    <script>
+        CKEDITOR.replace('editor1', {
+            extraPlugins: 'editorplaceholder',
+            editorplaceholder: 'Start typing here...',
+
+        });
+        function goend() {
+            let data = document.getElementById("editor1").value;
+            console.log(data);
+            alert(data);
+        }
+    </script>
+    <button onclick="goend()" style="width:80%; margin-left: 10%;  height:50px; background-color:steelblue" >Save</button>
+</header>

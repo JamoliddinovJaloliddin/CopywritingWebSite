@@ -3,44 +3,211 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CopywritingWebSite</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/CopywritingWebSite.styles.css" asp-append-version="true" />
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/site.css" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CopywritingWebSite</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+<body style="background-color: aliceblue;">
+    <div class="container-fluid">
+        <header>
+            <div class="container-fluid text-white text-center" style="height: 60px; background-color: #44C9FF;">
+                <div class="row" style="padding-top: 10px;">
+
+                    <div class="header_bottom">
+                       
+                        <div class="container">
+                            <div class="col" style="margin-left:-20%">
+                                <img src="https://www.etxt.ru/skins/default/images/header/logo.png" >
+                            </div>
+                            <nav class="main_nav" style="margin-right:4%">
+                                <ul>
+                                    <li><a style="-webkit-text-stroke-color:white" href="#" class="active">Главная </a></li>
+                                    <li><a href="#">О нас</a></li>
+                                    <li><a href="#">Каталог</a></li>
+                                    <li><a href="#">Новости</a></li>
+                                    <li><a href="#">Акции</a></li>
+                                    <li><a href="#">Подарки</a></li>
+                                    <li><a href="#">Статьи</a></li>
+                                </ul>
+                            </nav>
+                            <nav class="main_nav" style="margin-right: -18%">
+                            <ul>
+                            <li><a asp-controller="account" asp-action="register" style="margin-right:-20%" >Ro'yhatdan o'tish</a></li>
+                            </ul>
+                            </nav>
+                            <nav class="main_nav" style="margin-left: 16%">
+                                <ul>
+                                    <li><a asp-controller="account" asp-action="login"> Kirish</a></li>
+                                </ul>
+                            </nav>
+                            <nav style="margin-right: -10%">
+                            <svg style="margin-right:20px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-headset" viewBox="0 0 16 16">
+                                <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z" />
+                            </svg>
+                                <svg style="margin-right:20px;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
+        </header>
+        <div style="background-color :black; height: 0.3px;"></div>
+       @* <div class="container-fluid" style="height: 400px;  background-color: #44C9FF;">
+            <div id="carouselAllFeatures" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselAllFeatures" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselAllFeatures" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselAllFeatures" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://picsum.photos/seed/picsum/800/300" class="d-block w-100" alt="First Slidet" style="height: 400px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/seed/picsum/800/300" class="d-block w-100" alt="Second Slider" style="height: 400px;">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://picsum.photos/800/300?grayscale" class="d-block w-100" alt="Third Slider" style="height: 400px; ">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselAllFeatures" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselAllFeatures" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>*@
+
+         <!---->
+@*        <div class="container-fluid text-blue text-center" style="margin-top: 450px; height: 280px; margin-top: 40px; margin-bottom: -120px;">
+            <h1>Koperayting</h1>
+        </div>*@
+        <!---->
+       @* <div class="row row-cols-1 row-cols-md-3 g-3" style="margin-top: -200px; margin-left: 20px;">
+            <div class="col" style="margin-right: -10px; height: 200px;">
+                <div class="card">
+                    <div class="card-body" style="height: 656px;">
+                        <div class="mod-main__sections-block">
+                            <div class="mod-main__sections-block-title">
+                                Статьи на&nbsp;заказ<span class="mod-main__sections-block-open"></span>
+                            </div>
+                            <div class="mod-main__sections-block-row">
+                                <div class="mod-main__sections-block-row-title">
+                                    <a href="/copywriting/" class="js-target" data-target="GLAV_KOPIR">Копирайтинг →</a>
+                                </div>
+                                <img src="https://www.etxt.ru/modules/client/index/images/copy.png" alt="Копирайтинг" style="margin-left: 200px; margin-top: 10px;">
+                                <div class="mod-main__sections-block-row-text">
+                                    Зарегистрировавшись в системе как заказчик, вы сможете заказать профессиональный творческий текст. В качестве исполнителя вы можете принять любой заказ на тему, которая вам близка и интересна.
+                                    <a class="js-target" onclick="readMore('copyright')" data-target="GLAV_BOLSE_K">Подробнее →</a>
+                                </div>
+                            </div>
+                            <div class="mod-main__sections-block-row">
+                                <div class="mod-main__sections-block-row-title">
+                                    <a href="/rewriting/" class="js-target" data-target="GLAV_RERAIT">Рерайтинг →</a>
+                                </div>
+                                <img src="/modules/client/index/images/rerait.png" alt="Рерайтинг" class="mod-main__sections-block-row-img">
+                                <div class="mod-main__sections-block-row-text">
+                                    Если вы владелец сайта, то вам наверняка потребуется профессионал, способный качественно изменить исходный текст и сделать его уникальным для поисковиков.
+                                    <a class="js-target" onclick="readMore('rewrite');" data-target="GLAV_BOLSE_R">Подробнее →</a>
+                                </div>
+                            </div>
+                            <div class="mod-main__sections-block-row">
+                                <div class="mod-main__sections-block-row-title">
+                                    <a href="/translating/" class="js-target" data-target="GLAV_PEREVOD">Переводы →</a>
+                                </div>
+                                <img src="/modules/client/index/images/trans.png" alt="Переводы" class="mod-main__sections-block-row-img">
+                                <div class="mod-main__sections-block-row-text">
+                                    На нашем сайте переводчики всегда могут выбрать текст для перевода любой тематики и с любого языка, а заказчики смогут найти профессионального и талантливого исполнителя.
+                                    <a class="js-target" onclick="readMore('translate');" data-target="GLAV_BOLSE_P">Подробнее →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="height: 400px; ">
+                <div class="card text-center">
+                    <div class="card-body" style="height: 656px; flex: 0 0 calc(33%-150px)">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some dummy text to make up the card's content. You can replace it anytime.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="margin-left: -10px; height: 450px;">
+                <div class="card text-end">
+                    <div class="card-body" style="height: 656px;">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            Some dummy text to make up the card's content. You can replace it anytime.
+
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <!---->
+       @* <div class="container-fluid" style="height: 290px; background-color: white; margin-top: 360px;">
+            <div class="row" style="padding-top: 100px; padding-left: 130px;">
+                <div class="col" style=" background-color: white;  ">
+                    <img src="https://www.etxt.ru/modules/client/index/images/f2.png" style="margin-top: 50px;">
+                    <div><b>14,7</b> ming<br><span>bajarilgan<br>buyurtmalar</span></div>
+                </div>
+                <div class="col" style=" background-color: white; ">
+                    <img src="https://www.etxt.ru/modules/client/index/images/f3.png" style="margin-top: 50px;">
+                    <div><b>0,7</b> ming<br><span>ro'yhatdan o'tgan<br>buyurtmachilar</span></div>
+                </div>
+                <div class="col" style=" background-color: white; ">
+                    <img src="https://www.etxt.ru/modules/client/index/images/f4.png" style="margin-top: 50px;">
+                    <div><b>2,5</b> МЛН<br><span>зарегистрированных<br>Исполнителей</span></div>
+                </div>
+                <div class="col" style=" background-color: white; ">
+                    <img src="https://www.etxt.ru/modules/client/index/images/f5.png" style="margin-top: 50px;">
+                    <div><b>300</b> ТЫС<br><span>готовых<br>статей</span></div>
+                </div>
+                <div class="col" style=" background-color: white; ">
+                    <img src="https://www.etxt.ru/modules/client/index/images/f6.png" style="margin-top: 50px;">
+                    <div><b>120</b> ТЫС<br><span>готовых<br>фотографий</span></div>
+                </div>
+                <div class="col" style="background-color: white; ">
+                    <img src="https://www.etxt.ru/modules/client/index/images/f7.png" style="margin-top: 50px;">
+                    <div><b>12</b> ТЫС<br><span>отзывов</span></div>
+                </div>
+            </div>
+        </div>*@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - CopywritingWebSite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!---->
+        <div class="container-fluid" style="height: 400px;  background-color: #44C9FF;">
         </div>
-    </footer>
+    </div>
+    
+
+    
+   
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

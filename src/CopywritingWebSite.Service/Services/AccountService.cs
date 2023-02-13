@@ -18,7 +18,7 @@ namespace CopywritingWebSite.Service.Services
             this._emailService = emailService;
         }
 
-        public async Task<string> LoginAsync(long id, AccountRegisterDto dto)
+        public async Task<string> LoginAsync(AccountLoginDto dto)
         {
             var user = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Email == dto.Email);
             if (user is null)
