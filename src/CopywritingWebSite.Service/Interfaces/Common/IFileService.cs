@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace CopywritingWebSite.Service.Interfaces
+namespace CopywritingWebSite.Service.Interfaces.Common
 {
     public interface IFileService
     {

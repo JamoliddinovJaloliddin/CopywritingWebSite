@@ -1,6 +1,4 @@
-﻿using CopywritingWebSite.MVS.Middlewares;
-
-namespace CopywritingWebSite.MVS.Middlewares
+﻿namespace CopywritingWebSite.MVS.Middlewares
 {
     public class TokenRedirectMiddlevare
     {

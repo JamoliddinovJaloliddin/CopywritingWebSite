@@ -23,6 +23,7 @@
 	  <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
 	  <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.26.1" />
 	  <PackageReference Include="MimeKit" Version="3.5.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.0" />
 	</ItemGroup>
 

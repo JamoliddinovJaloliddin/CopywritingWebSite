@@ -1,11 +1,11 @@
-﻿using CopywritingWebSite.Service.Interfaces;
+﻿using CopywritingWebSite.Service.Interfaces.Common;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.Extensions.Configuration;
 using MimeKit;
 using MimeKit.Text;
 
-namespace CopywritingWebSite.Service.Services
+namespace CopywritingWebSite.Service.Services.Common
 {
     public class EmailService : IEmailService
     {
@@ -13,7 +13,7 @@ namespace CopywritingWebSite.Service.Services
 
         public EmailService(IConfiguration configuration)
         {
-            this._configuration = configuration.GetSection("EmailSettings");
+            _configuration = configuration.GetSection("EmailSettings");
         }
 
         public async Task<bool> SendAsync(string email)

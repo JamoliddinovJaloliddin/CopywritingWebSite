@@ -1,6 +1,4 @@
-﻿using CopywritingWebSite.MVS.Configurations;
-
-namespace CopywritingWebSite.MVS.Configurations.LayerConfiguration
+﻿namespace CopywritingWebSite.MVS.Configurations.LayerConfiguration
 {
     public static class WebConfiguration
     {
