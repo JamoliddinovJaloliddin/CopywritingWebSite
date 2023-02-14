@@ -4,6 +4,6 @@
     {
         Admin = 1,
         UserWorker = 2,
-        UserTheTmpolyeer = 3
+        UserTheEmpolyeer = 3
     }
 }

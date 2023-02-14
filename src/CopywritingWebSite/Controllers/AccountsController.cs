@@ -1,4 +1,5 @@
 ﻿using CopywritingWebSite.Service.Dtos.Acccount;
+using CopywritingWebSite.Service.Exceptions;
 using CopywritingWebSite.Service.Interfaces;
 using CopywritingWebSite.Service.Interfaces.Common;
 using CopywritingWebSite.Service.ViewModels;
@@ -12,12 +13,16 @@ namespace CopywritingWebSite.MVS.Controllers
         private readonly IAccountService _accountService;
         private readonly IEmailService _emailService;
         private readonly IUserService _userService;
+        private readonly IHttpContextAccessor _accessor;
+        private readonly IIdentityService _identityService;
 
-        public AccountsController(IAccountService accountService, IEmailService emailService, IUserService userService)
+        public AccountsController(IAccountService accountService, IEmailService emailService, IUserService userService, IHttpContextAccessor httpContextAccessor, IIdentityService identityService)
         {
             this._accountService = accountService;
             this._emailService = emailService;
             this._userService = userService;
+            _accessor = httpContextAccessor;
+            _identityService = identityService;
         }
 
         [HttpGet("login")]
@@ -32,40 +37,46 @@ namespace CopywritingWebSite.MVS.Controllers
                 {
                     var token = await _accountService.LoginAsync(accountLoginDto);
 
-                    return RedirectToAction();
 
-                    //HttpContext.Response.Cookies.Append("X-Access-Token", token.ToString(), new CookieOptions()
-                    //{
-                    //    HttpOnly = true,
-                    //    SameSite = SameSiteMode.Strict
-                    //});
-                    //var id = HttpContextHelper.UserId;
-                    //var res = HttpContextHelper.UserRole;
-                    //if (res == "Admin")
-                    //{
-                    //    return RedirectToAction("Approved", "Admin", new { area = "" });
-                    //}
-                    //else if (res == "User")
-                    //{
-                    //    return RedirectToAction("Active", "users", new { area = "" });
-                    //}
-                    //else
-                    //{
-                    //    return View();
-                    //}
+
+                    HttpContext.Response.Cookies.Append("X-Access-Token", token.ToString(), new CookieOptions()
+                    {
+                        HttpOnly = true,
+                        SameSite = SameSiteMode.Strict
+                    });
+
+                    var res = GlobalVariableModel.UserRole;
+
+
+                    if (res.ToString() == "UserTheEmpolyeer")
+                    {
+                        return View("../CustomerTheEmpolyeer/OrderWindow");
+                    }
+                    else if (res.ToString() == "UserWorker")
+                    {
+                        return View("../CustomerWorker/DesktopWindow");
+                    }
+                    else if (res.ToString() == "Admin")
+                    {
+                        return View("../Admin/UserTheEmpolyeerListWindow");
+                    }
+                    else
+                    {
+                        return Login();
+                    }
 
                 }
-                //catch (ModelErrorException modelError)
-                //{
-                //    ModelState.AddModelError(modelError.Property, modelError.Message);
-                //    return Login();
-                //}
+                catch (ModelErrorException modelError)
+                {
+                    ModelState.AddModelError(modelError.Property, modelError.Message);
+                    return Login();
+                }
                 catch
                 {
                     return Login();
                 }
             }
-            else return Login();
+            return RedirectToAction("worker", "admin");
         }
 
         [HttpGet("register")]
@@ -74,10 +85,10 @@ namespace CopywritingWebSite.MVS.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync(AccountRegisterDto dto)
         {
+
             try
             {
                 var resault = await _accountService.RegisterAsync(dto);
-
                 return Email();
             }
             catch
@@ -102,6 +113,7 @@ namespace CopywritingWebSite.MVS.Controllers
             {
                 await _userService.DeleteAsync(GlobalVariableModel.Email);
                 return View("Register");
+                return View("Login");
             }
         }
     }

@@ -7,6 +7,7 @@ namespace CopywritingWebSite.MVS.Controllers
     {
 
 
+
         public ViewResult Get() => View("MessagesWindow");
 
         [HttpGet("worker")]
