@@ -14,10 +14,12 @@ namespace CopywritingWebSite.Service.Services
     {
         private readonly AppDbContext _appDbContext;
         private readonly IEmailService _emailService;
-        public AccountService(AppDbContext appDbContext, IEmailService emailService)
+        private readonly IAuthManagaer _authManagaer;
+        public AccountService(AppDbContext appDbContext, IEmailService emailService, IAuthManagaer authManagaer)
         {
             this._appDbContext = appDbContext;
             this._emailService = emailService;
+            _authManagaer = authManagaer;
         }
 
         public async Task<string> LoginAsync(AccountLoginDto dto)
@@ -28,10 +30,12 @@ namespace CopywritingWebSite.Service.Services
                 return "";
             }
 
-            var hashResault = PasswordHash.Verify(user.PasswordHash, user.Salt, user.PasswordHash);
+            var hashResault = PasswordHash.Verify(dto.Password, user.Salt, user.PasswordHash);
             if (hashResault)
             {
-                return "";
+                GlobalVariableModel.Id = user.Id;
+                GlobalVariableModel.UserRole = user.Role;
+                return _authManagaer.GenerateToken(user); ;
             }
             return "";
         }

@@ -1,5 +1,6 @@
 using CopywritingWebSite.MVS.Configurations.LayerConfiguration;
 using CopywritingWebSite.MVS.Middlewares;
+using CopywritingWebSite.Service.Helpers;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +33,9 @@ app.UseStatusCodePages(async context =>
 });
 
 app.UseMiddleware<TokenRedirectMiddlevare>();
+
+if (app.Services.GetService<IHttpContextAccessor>() != null)
+    HttpContextHelper.Accessor = app.Services.GetRequiredService<IHttpContextAccessor>();
 
 
 app.UseAuthentication();
