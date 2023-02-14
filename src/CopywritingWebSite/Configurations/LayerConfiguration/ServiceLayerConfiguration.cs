@@ -23,6 +23,7 @@ namespace CopywritingWebSite.MVS.Configurations.LayerConfiguration
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<IAuthManagaer, AuthManager>();
             services.AddScoped<IPaginationService, PaginationService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddHttpContextAccessor();
             services.AddAutoMapper(typeof(MappingConfiguration));
             services.AddMemoryCache();

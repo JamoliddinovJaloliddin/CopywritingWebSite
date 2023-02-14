@@ -5,6 +5,7 @@ using CopywritingWebSite.Service.Helpers;
 using CopywritingWebSite.Service.Interfaces;
 using CopywritingWebSite.Service.Interfaces.Common;
 using CopywritingWebSite.Service.Services.Common;
+using CopywritingWebSite.Service.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace CopywritingWebSite.Service.Services
@@ -40,8 +41,11 @@ namespace CopywritingWebSite.Service.Services
             var user = await _appDbContext.Users.FirstOrDefaultAsync(x => x.Email == dto.Email);
             if (user is not null)
             {
-                return "";
+                return "Bu email mavjud";
             }
+            int checkEmail = await SendEmail(dto.Email);
+            GlobalVariableModel.EmailCheck = checkEmail;
+            GlobalVariableModel.Email = dto.Email;
             var passwordHash = PasswordHash.Hash(dto.Password);
             var users = (User)dto;
             users.Salt = passwordHash.Salt;
@@ -52,10 +56,17 @@ namespace CopywritingWebSite.Service.Services
             return "";
         }
 
-        public async Task SendEmail(string email)
+        public async Task<int> SendEmail(string email)
         {
-            var res = _emailService.SendAsync(email);
-            ;
+            var res = await _emailService.SendAsync(email);
+            return res;
+        }
+
+        public async Task<bool> CheckEmail(string email)
+        {
+            var res = int.Parse(email) == GlobalVariableModel.EmailCheck;
+            GlobalVariableModel.EmailCheck = 0;
+            return res;
         }
     }
 }

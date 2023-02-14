@@ -16,22 +16,26 @@ namespace CopywritingWebSite.Service.Services.Common
             _configuration = configuration.GetSection("EmailSettings");
         }
 
-        public async Task<bool> SendAsync(string email)
+        public async Task<int> SendAsync(string email)
         {
+
+            Random random = new Random();
+
+            var resault = random.Next(100000, 999999);
+
             var userEmail = new MimeMessage();
 
             userEmail.From.Add(MailboxAddress.Parse(_configuration["Email"]));
             userEmail.To.Add(MailboxAddress.Parse(email));
-            userEmail.Subject = "";
-            userEmail.Body = new TextPart(TextFormat.Html) { Text = "" };
+            userEmail.Subject = "VerificationCode";
+            userEmail.Body = new TextPart(TextFormat.Html) { Text = $"{resault}" };
 
             var smtp = new SmtpClient();
             await smtp.ConnectAsync(_configuration["Host"], 587, SecureSocketOptions.StartTls);
             await smtp.AuthenticateAsync(_configuration["Email"], _configuration["Password"]);
             await smtp.SendAsync(userEmail);
             await smtp.DisconnectAsync(true);
-            return true;
-
+            return resault;
         }
     }
 }
