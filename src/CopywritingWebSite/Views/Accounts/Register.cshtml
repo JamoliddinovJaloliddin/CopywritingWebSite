@@ -143,8 +143,11 @@
         <label for="password" class="required form-label">Password</label>
         <input type="password" placeholder="Password" asp-for="Password">
 
-        <label for="phone" class="required form-label">Role</label>
-        <input type="text" placeholder="+998YYXXXXXXX" asp-for="UserRole">
+        <label for="phone" class="required form-label">Kategoriya</label>
+        <select style="height: 35px; width: 100%;" class="form-select mt-4" asp-for="UserRole" >
+            <option value="2">Ish oluvchi</option>
+            <option value="3">Ish beruvchi</option>
+        </select>
 
 
         <div class="mt-8">

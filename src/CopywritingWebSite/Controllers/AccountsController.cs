@@ -1,5 +1,7 @@
 ﻿using CopywritingWebSite.Service.Dtos.Acccount;
 using CopywritingWebSite.Service.Interfaces;
+using CopywritingWebSite.Service.Interfaces.Common;
+using CopywritingWebSite.Service.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CopywritingWebSite.MVS.Controllers
@@ -8,10 +10,14 @@ namespace CopywritingWebSite.MVS.Controllers
     public class AccountsController : Controller
     {
         private readonly IAccountService _accountService;
+        private readonly IEmailService _emailService;
+        private readonly IUserService _userService;
 
-        public AccountsController(IAccountService accountService)
+        public AccountsController(IAccountService accountService, IEmailService emailService, IUserService userService)
         {
             this._accountService = accountService;
+            this._emailService = emailService;
+            this._userService = userService;
         }
 
         [HttpGet("login")]
@@ -72,11 +78,30 @@ namespace CopywritingWebSite.MVS.Controllers
             {
                 var resault = await _accountService.RegisterAsync(dto);
 
-                return Login();
+                return Email();
             }
             catch
             {
                 return Register();
+            }
+        }
+
+
+        [HttpGet("email")]
+        public ViewResult Email() => View("Email");
+
+        [HttpPost("email")]
+        public async Task<IActionResult> EmailAsync(string email)
+        {
+            var res = await _accountService.CheckEmail(email);
+            if (res)
+            {
+                return View("Login");
+            }
+            else
+            {
+                await _userService.DeleteAsync(GlobalVariableModel.Email);
+                return View("Register");
             }
         }
     }

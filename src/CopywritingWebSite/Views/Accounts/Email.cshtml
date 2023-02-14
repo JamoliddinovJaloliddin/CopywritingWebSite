@@ -103,16 +103,13 @@
     }
 
 </style>
-<div>
-    <form asp-controller="accounts" asp-action="login" method="post">
-        <h4>Shaxsiy akkount</h4>
-        <label for="password" class="required form-label">Password</label>
-        <input type="password" placeholder="Password" asp-for="Password">
+<div style="height:300px;">
+    <form asp-controller="accounts" asp-action="email" method="post">
+        <h4>Tekshiruv</h4>
+        <label for="username" class="required form-label">Parol</label>
+        <input type="number"  asp-for="Email">
 
-        <div class="mt-8">
-            <input type="submit" class="btn btn-success" style="width:100%; background-color:aqua; margin-top:40px;" value="Kirish" />
-        </div>
-        <button class="btn btn-primary" asp-controller="accounts" asp-action="register">Ro'yhatdan o'tish</button>
+        <button class="btn btn-primary" asp-controller="accounts" asp-action="email">Parol</button>
     </form>
 </div>
 
