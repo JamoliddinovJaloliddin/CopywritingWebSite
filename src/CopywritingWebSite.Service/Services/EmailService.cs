@@ -31,7 +31,7 @@ namespace CopywritingWebSite.Service.Services
             await smtp.SendAsync(userEmail);
             await smtp.DisconnectAsync(true);
             return true;
-            
+
         }
     }
 }

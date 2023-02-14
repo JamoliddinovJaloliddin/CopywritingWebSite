@@ -75,7 +75,7 @@ namespace CopywritingWebSite.MVS.Controllers
                 return Login();
             }
             catch
-            { 
+            {
                 return Register();
             }
         }
