@@ -1,10 +1,10 @@
 ﻿using CopywritingWebSite.Service.Common.Helpers;
-using CopywritingWebSite.Service.Interfaces;
+using CopywritingWebSite.Service.Interfaces.Common;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
 
-namespace CopywritingWebSite.Service.Services
+namespace CopywritingWebSite.Service.Services.Common
 {
     public class FileService : IFileService
     {

@@ -1,11 +1,5 @@
 ﻿using CopywritingWebSite.Service.Interfaces.Common;
-using CopywritingWebSite.Service.Services.Common;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CopywritingWebSite.Service.Services.Common
 {
@@ -28,7 +22,7 @@ namespace CopywritingWebSite.Service.Services.Common
         public string Email
         {
             get
-            { 
+            {
                 var resault = _accessor.HttpContext!.User.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress");
                 return resault is null ? string.Empty : resault.Value;
             }
