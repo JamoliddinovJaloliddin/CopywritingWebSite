@@ -1,7 +1,5 @@
-﻿using CopywritingWebSite.MVS.Configurations;
-using CopywritingWebSite.Service.Interfaces;
+﻿using CopywritingWebSite.Service.Interfaces;
 using CopywritingWebSite.Service.Services;
-using MailKit;
 
 namespace CopywritingWebSite.MVS.Configurations.LayerConfiguration
 {
