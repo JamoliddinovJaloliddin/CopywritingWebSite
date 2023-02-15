@@ -2,6 +2,7 @@
 using CopywritingWebSite.Domain.Entities;
 using CopywritingWebSite.Service.Dtos.ArticleDto;
 using CopywritingWebSite.Service.Interfaces;
+using CopywritingWebSite.Service.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace CopywritingWebSite.Service.Services
@@ -9,17 +10,30 @@ namespace CopywritingWebSite.Service.Services
     public class ArticleService : IArticleService
     {
         private readonly AppDbContext _appDbContext;
+        private readonly List<string> strings = new List<string>() { "&lt;script&gt;", "&lt;/script&gt;" };
 
         public ArticleService(AppDbContext appDbContext)
         {
             this._appDbContext = appDbContext;
         }
 
-        public async Task CreateAsync(ArticleCreateDto dto)
+        public async Task<bool> CreateAsync(ArticleCreateDto dto)
         {
+            string word = dto.Text;
+            foreach (string s in strings)
+            {
+                bool resault = word.Contains(s);
+                if (resault == true)
+                {
+                    return false;
+                }
+            }
+
             var text = (Article)dto;
+            text.UserId = GlobalVariableModel.Id;
             _appDbContext.Articles.Add(text);
-            await _appDbContext.SaveChangesAsync();
+            var res = _appDbContext.SaveChanges();
+            return res > 0;
         }
 
         public async Task DeleteAsync(long id)

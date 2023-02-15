@@ -1,37 +1,63 @@
-﻿@{
+﻿@using CopywritingWebSite.Service.Dtos.ArticleDto;
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+
+@model ArticleCreateDto
+@{
     Layout = "../UserMainWindow/MainWindowLayoutTwo.cshtml";
 }
 <link href="~/css/form.css" rel="stylesheet">
+@{
+    
+     
+    <div class="row" style="margin-top:30px;background-color:transparent">
+                <div class="col-75" style="background-color:transparent">
+                  
+                    <div class="mb-5 mb-xl-8 h-800" style="width:100%;">
+                        <textarea cols="10" name="editor1" id="editor1" rows="10" style="height:800px"></textarea>
+                                               
+                    </div>
+                    <script src="https://cdn.ckeditor.com/4.20.1/standard-all/ckeditor.js" asp-append-version="true"></script>
+                    @section Scripts {
+                        <script>
+                            CKEDITOR.replace('editor1')
+                            function goend() {
+                                                     
+                                var data = CKEDITOR.instances.editor1.getData();
+                                $(document).ready(function () {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/Home/Add",
+                                        data: { text: data },
+                                        success: function (resault) {
+                                            if (resault == true)
+                                            {
+                                                CKEDITOR.instances.editor1.setData("");
+                                            }
+                                            else
+                                            {
+                                                alert("Maqolada muammo");
+                                            }
+                                        }
+                                    });
+                                })
+                                                   
+                            }
+                        </script>
+                    }
+                </div>
 
-<div class="row" style="margin-top:30px;background-color:transparent">
-    <div class="col-75" style="background-color:transparent">
-        <div class="mb-5 mb-xl-8 h-600px" style="width:100%;">
-            <textarea cols="10" id="editor1" name="editor1" rows="10"></textarea>
-        </div>
-        <script src="https://cdn.ckeditor.com/4.20.1/standard-all/ckeditor.js" asp-append-version="true"></script>
-        <script>
-            CKEDITOR.replace('editor1', {
-                extraPlugins: 'editorplaceholder',
-                editorplaceholder: 'Start typing here...',
 
-            });
-            function goend() {
-                let data = document.getElementById("editor1").value;
-                console.log(data);
-                alert(data);
-            }
-        </script>
+                                        
+                <div class="col-25">
+                    <div class="container" style="background-color:white; height:300px;  border-radius:6px;">
+                        <h4>Savat <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i></span></h4>
+                        <p><a href="#">Buyurtma 1</a> </p>
+                        <hr>
+                    </div>
+                </div>
+                                        
     </div>
-
-    <div class="col-25">
-        <div class="container" style="background-color:white; height:300px;  border-radius:6px;">
-            <h4>Savat <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i></span></h4>
-            <p><a href="#">Buyurtma 1</a> </p>
-            <hr>
-        </div>
-    </div>
-    <input type="submit" value="Saqlash" class="btn" style="margin-left:16px; width:73.2%;">
-</div>
-
-
+    <button onclick="goend()" type="submit" value="Saqlash" class="btn" style=" width:73.2%; height:35px">Saqlash</button>
+        
+    }
 

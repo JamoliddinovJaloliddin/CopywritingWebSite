@@ -1,22 +1,49 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CopywritingWebSite.Service.Dtos.ArticleDto;
+using CopywritingWebSite.Service.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CopywritingWebSite.MVS.Controllers
 {
     [Route("customerWorker")]
     public class CustomerWorkerController : Controller
     {
-        public ViewResult Login() => View("DesktopWindow");
-
-        [HttpGet("get")]
-        public async Task<IActionResult> Get()
+        private readonly IArticleService _articleService;
+        public CustomerWorkerController(IArticleService articleService)
         {
-            return View("CustomerWorkerTable");
+            this._articleService = articleService;
         }
 
-        [HttpGet("tableAdd")]
-        public async Task<IActionResult> GetTable()
+        public ViewResult Login() => View("DesktopWindow");
+
+        //[HttpGet("get")]
+        //public async Task<IActionResult> Get()
+        //{
+        //    return View("CustomerWorkerTable");
+        //}
+
+        //[HttpGet("tableAdd")]
+        //public async Task<IActionResult> GetTable()
+        //{
+        //    return View("CustomerWorkerTableAdd");
+        //}
+
+
+        [HttpPost]
+        public async Task<IActionResult> Article(ArticleCreateDto dto)
         {
-            return View("CustomerWorkerTableAdd");
+
+
+            await _articleService.CreateAsync(dto);
+
+            return View("DesktopWindow");
+        }
+
+        public async Task<IActionResult> Add(string text)
+        {
+            ArticleCreateDto article = new ArticleCreateDto();
+            article.Text = text;
+            var Response = "";
+            return Json(Response);
         }
     }
 }
